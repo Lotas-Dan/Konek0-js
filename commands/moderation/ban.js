@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const db = require('quick.db');
-const { logChannelID } = require('../../config.json');
+const { errLogChannelID } = require('../../config.json');
 
 module.exports = {
         name: "ban",
@@ -59,8 +59,8 @@ module.exports = {
                 .addField("**Date**", message.createdAt.toLocaleString())
                 .setTimestamp();
 
-                if(!logChannelID){ var sChannel = message.guild.channels.cache.get(channel)}
-                else{var sChannel = message.guild.channels.cache.get(logChannelID)}
+                if(!errLogChannelID){ var sChannel = message.guild.channels.cache.get(channel)}
+                else{var sChannel = message.guild.channels.cache.get(errLogChannelID)}
             if (!sChannel) return;
             sChannel.send(embed)
         } catch (e) {
