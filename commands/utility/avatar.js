@@ -19,7 +19,7 @@ module.exports = {
             .setColor(member.displayHexColor)
             .setImage(member.user.displayAvatarURL({ dynamic: true, size: 2048 }))
             .setURL(member.user.avatarURL())
-        message.channel.send(avatar)
+        return message.channel.send({embeds: [avatar]})
             // If bot doesnt have embed perms 
             .catch(() => message.channel.send('**Error:** Missing permission `Embed link` '));
 

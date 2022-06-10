@@ -29,10 +29,10 @@ module.exports = {
     }
 
     message.channel.send({
-      embed: utils.embed('', stripIndents`
-  **Equation:**\n\`\`\`\n${question}\n\`\`\`
-  **Answer:**\n\`\`\`\n${answer}\n\`\`\`
-  `)
+      embeds: utils.embed('', stripIndents`
+      **Equation:**\n\`\`\`\n${question}\n\`\`\`
+      **Answer:**\n\`\`\`\n${answer}\n\`\`\`
+      `)
     });
   }
 };

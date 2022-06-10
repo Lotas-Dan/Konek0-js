@@ -13,7 +13,7 @@ module.exports = {
 
             return message.reply(errMessage)
                 .then(msg => {
-                    msg.delete({ timeout: 3000 })
+                    setTimeout(() => msg.delete(), 3000);
                 })
         }
 
@@ -29,7 +29,7 @@ module.exports = {
                         .setColor('#FF0000')
                         .setFooter(`Tags: r34 ${query}`)
                         .setTimestamp()
-                    return message.channel.send({ embed });
+                    return message.channel.send({ embeds: [embed] });
                 }
 
             }).catch(err => {
@@ -37,14 +37,15 @@ module.exports = {
                     return message.channel.send(`No results found for **${query}**!`);
                 } else {
                     const { errLogChannelID } = require('../../config.json');
-                    if(!errLogChannelID) return message.channel.send(err);
+                    const channel = client.channels.cache.get(errLogChannelID)
+                    if(!channel) return;
                     message.react('❌')
                     const logMessage = new discord.MessageEmbed()
                         .setTitle('Logs of CMD Errors | Crush | Broken')
                         .setColor('BLUE')
-                        .setDescription(`${message.author.username} use CMD "***r34***"\nFrom server: ${message.guild.name}\n${err}`)
+                        .setDescription(`${message.author.username} use CMD "***${pussy.name}***"\nFrom server: ${message.guild.name}\n${err}`)
                         .setTimestamp()
-                    client.channels.cache.get(errLogChannelID).send(logMessage);
+                    channel.send({embeds: [logMessage]})
                 }
             })
     }

@@ -10,7 +10,9 @@ module.exports = {
     if (!message.channel.nsfw) {
       return message.reply(
         `This is not an NSFW Channel`
-      )
+      ).then(msg => {
+        setTimeout(() => msg.delete(), 3000);
+      })
     }
 
     try {
@@ -40,7 +42,7 @@ module.exports = {
         .setImage(url)
         .setFooter("Requested by: " + message.member.displayName, message.author.displayAvatarURL({ dinamic: true }))
 
-      return message.channel.send(BoobsEmbed)
+      return message.channel.send({embeds: [BoobsEmbed]})
 
     } catch (err) {
       if (DiscordAPIError) {
@@ -48,14 +50,15 @@ module.exports = {
       }
       else {
         const { errLogChannelID } = require('../../config.json');
-        if(!errLogChannelID) return message.channel.send(err);
+        const channel = client.channels.cache.get(errLogChannelID)
+        if(!channel) return;
         message.react('❌')
-        const logMessage = new MessageEmbed()
-          .setTitle('Logs of CMD Errors | Crush | Broken')
-          .setColor('BLUE')
-          .setDescription(`${message.author.username} use CMD "***boobs***"\nFrom server: ${message.guild.name}\n${err}`)
-          .setTimestamp()
-        client.channels.cache.get(errLogChannelID).send(logMessage);
+        const logMessage = new discord.MessageEmbed()
+            .setTitle('Logs of CMD Errors | Crush | Broken')
+            .setColor('BLUE')
+            .setDescription(`${message.author.username} use CMD "***${pussy.name}***"\nFrom server: ${message.guild.name}\n${err}`)
+            .setTimestamp()
+        channel.send({embeds: [logMessage]})
       }
     }
   }

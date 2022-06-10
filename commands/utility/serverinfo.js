@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+const discord = require("discord.js");
 
 module.exports = {
   name: "serverinfo",
@@ -8,7 +8,7 @@ module.exports = {
   run: async (client, message, args) => {
     //command
     let servericon = message.guild.iconURL;
-    let serverembed = new Discord.MessageEmbed()
+    const serverembed = new discord.MessageEmbed()
       .setTitle("Server Information")
       .setColor("RANDOM")
       .setThumbnail(servericon)
@@ -22,6 +22,6 @@ module.exports = {
       .setThumbnail(message.guild.iconURL())
       .setTimestamp()
       .setFooter("Requested by: " + message.member.displayName, message.author.displayAvatarURL({ dinamic: true }))
-    message.channel.send(serverembed);
+    return message.channel.send({embeds: [serverembed]});
   }
 };

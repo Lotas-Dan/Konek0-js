@@ -29,17 +29,17 @@ module.exports = {
                 })
 
             if (reason) {
-                var sembed = new MessageEmbed()
+                const sembed = new MessageEmbed()
                     .setColor("GREEN")
                     .setAuthor(message.guild.name, message.guild.iconURL())
                     .setDescription(`**${banMember.user.username}** has been banned for ${reason}`)
-                message.channel.send(sembed)
+                message.channel.send({embeds: [sembed]})
             } else {
-                var sembed2 = new MessageEmbed()
+                const sembed2 = new MessageEmbed()
                     .setColor("GREEN")
                     .setAuthor(message.guild.name, message.guild.iconURL())
                     .setDescription(`**${banMember.user.username}** has been banned`)
-                message.channel.send(sembed2)
+                message.channel.send({embeds: [sembed2]})
             }
 
             const embed = new MessageEmbed()
@@ -58,7 +58,7 @@ module.exports = {
             var sChannel = message.guild.channels.cache.get(errLogChannelID)
             if (!errLogChannelID) return;
             if (!sChannel) return;
-            sChannel.send(embed)
+            sChannel.send({embeds: [embed]})
         } catch (e) {
             return message.channel.send(`**${e.message}**`)
         }

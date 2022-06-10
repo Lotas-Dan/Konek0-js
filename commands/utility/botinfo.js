@@ -38,7 +38,7 @@ module.exports = {
                 .addField("🎴API Latency", `${(client.ws.ping)}ms`)
                 .addField("👑 Owner", "『♛ 𝕰𝖒𝖕𝖊𝖗𝖔𝖗 ♛』#0398", true)
                 .setTimestamp()
-            message.channel.send(botinfo)
+            return message.channel.send({embeds: [botinfo]})
         });
     }
 };

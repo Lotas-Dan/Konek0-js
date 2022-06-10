@@ -28,6 +28,6 @@ module.exports = (client) => {
     console.log(table.toString());
     console.log("Welcome to [ Konek0 ] // By https://github.com/Lotas-Dan // Discord: 『♛ 𝕰𝖒𝖕𝖊𝖗𝖔𝖗 ♛』#0398")
 
-    console.log("Logging into Bot User...");
+    console.log("Connecting Bot Events ...");
 
 }

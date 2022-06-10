@@ -22,7 +22,6 @@ module.exports = {
      * @param {String[]} args
      */
     run: async (client, message, args) => {
-        let pref = prefix;
         try {
             const command = [
                 `bots\` - Delete messages sent by bots. (Ignore humans)`,
@@ -46,12 +45,12 @@ module.exports = {
                 )
                 .addField(
                     "Usage",
-                    `\`${pref}purge <amount>\` - Delete a number of messages.\n\`${pref}purge <amount> --${command.join(
-                        `\n\`${pref}purge <amount> --`
+                    `\`${prefix}purge <amount>\` - Delete a number of messages.\n\`${prefix}purge <amount> --${command.join(
+                        `\n\`${prefix}purge <amount> --`
                     )}`
                 )
-                .setFooter(`${pref}purge, ${pref}clear, ${pref}delete, ${pref}prune`);
-            if (!args[0] || !args.length) return message.channel.send(embd);
+                .setFooter(`${prefix}purge, ${prefix}clear, ${prefix}delete, ${prefix}prune`);
+            if (!args[0] || !args.length) return message.channel.send({embeds: [embd]});
             let amount = Number(args[0], 10) || parseInt(args[0]);
             if (isNaN(amount) || !Number.isInteger(amount))
                 return message.channel.send(
@@ -61,14 +60,14 @@ module.exports = {
                 try {
                     await message.delete();
                     await message.channel.bulkDelete(amount).then(async (m) => {
-                        let embed = new discord.MessageEmbed()
+                        const embed = new discord.MessageEmbed()
                             .setColor("0x#00ffff")
                             .setDescription(
                                 `✅  Cleared **${m.size}**/**${amount}** messages!`
                             );
                         message.channel
-                            .send(embed)
-                            .then((msg) => msg.delete({ timeout: 4000 }));
+                            .send({embeds: [embed]})
+                            .then((msg) => setTimeout(() => msg.delete(), 5000));
                     });
                 } catch (e) {
                     console.log(e);
@@ -101,8 +100,8 @@ module.exports = {
                                             `✅  Cleaed **${m.size}**/**${amount}** messages!`
                                         );
                                     message.channel
-                                        .send(embed)
-                                        .then((msg) => msg.delete({ timeout: 50000 }));
+                                        .send({embeds: [embed]})
+                                        .then((msg) => setTimeout(() => msg.delete(), 5000));
                                 });
                         } catch (e) {
                             console.log(e);
@@ -129,8 +128,8 @@ module.exports = {
                                             `✅  Cleared **${m.size}**/**${amount}** messages!`
                                         );
                                     message.channel
-                                        .send(embed)
-                                        .then((msg) => msg.delete({ timeout: 50000 }));
+                                        .send({embeds: [embed]})
+                                        .then((msg) => setTimeout(() => msg.delete(), 5000));
                                 });
                         } catch (e) {
                             console.log(e);
@@ -161,8 +160,8 @@ module.exports = {
                                         `Purged ${m.size} messages\nModerator: **${message.author.tag} | ${message.author.id}**`
                                     );
                                     message.channel
-                                        .send(embed)
-                                        .then((msg) => msg.delete({ timeout: 50000 }));
+                                        .send({embeds: [embed]})
+                                        .then((msg) => setTimeout(() => msg.delete(), 5000));
                                 });
                         } catch (e) {
                             console.log(e);
@@ -193,8 +192,8 @@ module.exports = {
                                         `Purged ${m.size} messages\nModerator: **${message.author.tag} | ${message.author.id}**`
                                     );
                                     message.channel
-                                        .send(embed)
-                                        .then((msg) => msg.delete({ timeout: 50000 }));
+                                        .send({embeds: [embed]})
+                                        .then((msg) => setTimeout(() => msg.delete(), 5000));
                                 });
                         } catch (e) {
                             console.log(e);
@@ -225,8 +224,8 @@ module.exports = {
                                         `Purged ${m.size} messages\nModerator: **${message.author.tag} | ${message.author.id}**`
                                     );
                                     message.channel
-                                        .send(embed)
-                                        .then((msg) => msg.delete({ timeout: 50000 }));
+                                        .send({embeds: [embed]})
+                                        .then((msg) => setTimeout(() => msg.delete(), 5000));
                                 });
                         } catch (e) {
                             console.log(e);
@@ -257,8 +256,8 @@ module.exports = {
                                         `Purged ${m.size} messages\nModerator: **${message.author.tag} | ${message.author.id}**`
                                     );
                                     message.channel
-                                        .send(embed)
-                                        .then((msg) => msg.delete({ timeout: 50000 }));
+                                        .send({embeds: [embed]})
+                                        .then((msg) => setTimeout(() => msg.delete(), 5000));
                                 });
                         } catch (e) {
                             console.log(e);
@@ -289,8 +288,8 @@ module.exports = {
                                         `Purged ${m.size} messages\nModerator: **${message.author.tag} | ${message.author.id}**`
                                     );
                                     message.channel
-                                        .send(embed)
-                                        .then((msg) => msg.delete({ timeout: 50000 }));
+                                        .send({embeds: [embed]})
+                                        .then((msg) => setTimeout(() => msg.delete(), 5000));
                                 });
                         } catch (e) {
                             console.log(e);
@@ -321,8 +320,8 @@ module.exports = {
                                         `Purged ${m.size} messages\nModerator: **${message.author.tag} | ${message.author.id}**`
                                     );
                                     message.channel
-                                        .send(embed)
-                                        .then((msg) => msg.delete({ timeout: 50000 }));
+                                        .send({embeds: [embed]})
+                                        .then((msg) => setTimeout(() => msg.delete(), 5000));
                                 });
                         } catch (e) {
                             console.log(e);
@@ -353,8 +352,8 @@ module.exports = {
                                         `Purged ${m.size} messages\nModerator: **${message.author.tag} | ${message.author.id}**`
                                     );
                                     message.channel
-                                        .send(embed)
-                                        .then((msg) => msg.delete({ timeout: 50000 }));
+                                        .send({embeds: [embed]})
+                                        .then((msg) => setTimeout(() => msg.delete(), 5000));
                                 });
                         } catch (e) {
                             console.log(e);
@@ -385,8 +384,8 @@ module.exports = {
                                         `Purged ${m.size} messages\nModerator: **${message.author.tag} | ${message.author.id}**`
                                     );
                                     message.channel
-                                        .send(embed)
-                                        .then((msg) => msg.delete({ timeout: 50000 }));
+                                        .send({embeds: [embed]})
+                                        .then((msg) => setTimeout(() => msg.delete(), 5000));
                                 });
                         } catch (e) {
                             console.log(e);
@@ -417,8 +416,8 @@ module.exports = {
                                         `Purged ${m.size} messages\nModerator: **${message.author.tag} | ${message.author.id}**`
                                     );
                                     message.channel
-                                        .send(embed)
-                                        .then((msg) => msg.delete({ timeout: 50000 }));
+                                        .send({embeds: [embed]})
+                                        .then((msg) => setTimeout(() => msg.delete(), 5000));
                                 });
                         } catch (e) {
                             console.log(e);
@@ -428,8 +427,7 @@ module.exports = {
                         }
                         break;
                     default:
-                        return message.channel.send(embd);
-                        break;
+                        return message.channel.send({embeds: [embd]});
                 }
             } else {
                 return message.channel.send(`An error occoured.`);

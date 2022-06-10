@@ -33,17 +33,17 @@ module.exports = {
                 kickMember.kick()).catch(() => kickMember.kick())
 
             if (reason) {
-                var sembed = new MessageEmbed()
+                const sembed = new MessageEmbed()
                     .setColor("GREEN")
                     .setAuthor(message.guild.name, message.guild.iconURL())
                     .setDescription(`**${kickMember.user.username}** has been kicked for ${reason}`)
-                message.channel.send(sembed);
+                message.channel.send({embeds: [sembed]});
             } else {
-                var sembed3 = new MessageEmbed()
+                const sembed3 = new MessageEmbed()
                     .setColor("GREEN")
                     .setAuthor(message.guild.name, message.guild.iconURL())
                     .setDescription(`**${kickMember.user.username}** has been kicked`)
-                message.channel.send(sembed3);
+                message.channel.send({embeds: [sembed3]});
             }
 
             const embed = new MessageEmbed()
@@ -61,7 +61,7 @@ module.exports = {
             var sChannel = message.guild.channels.cache.get(errLogChannelID)
             if (!errLogChannelID) return;
             if (!sChannel) return;
-            sChannel.send(embed)
+            sChannel.send({embeds: [embed]})
         } catch (e) {
             return message.channel.send(`**${e.message}**`)
         }

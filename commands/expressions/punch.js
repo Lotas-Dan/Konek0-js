@@ -12,13 +12,13 @@ module.exports = {
       return message.reply('You need to mention the user') //'Why are you doing it ? ＞﹏＜'
     let data = await Random.getAnimeImgURL("punch");
 
-    let embed = new discord.MessageEmbed()
+    const embed = new discord.MessageEmbed()
       .setTitle(user.username + " You have been punched")
       .setImage(data)
       .setColor("RANDOM")
       .setDescription(target.toString() + " punches " + message.author.toString())
       .setTimestamp()
       .setFooter("Requested by: " + message.member.displayName, message.author.displayAvatarURL({ dinamic: true }))
-    message.channel.send(embed);
+    return message.channel.send({embeds: [embed]});
   }
 };

@@ -17,7 +17,7 @@ module.exports = {
                         .setImage(owo.url)
                         .setColor(`#000000`)
                         .setTimestamp()
-                  message.channel.send(goose);
+                  return message.channel.send({embeds: [goose]});
             }
             work();
       }

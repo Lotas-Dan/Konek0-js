@@ -29,7 +29,7 @@ module.exports = {
           .addField('Score Stats', data.scoreStats, true)
           .addField('Link', data.url);
 
-        message.channel.send(malEmbed);
+        return message.channel.send({embeds: [malEmbed]});
 
       })
   }

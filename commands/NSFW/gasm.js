@@ -14,7 +14,7 @@ module.exports = {
 
                   return message.reply(errMessage)
                         .then(msg => {
-                              msg.delete({ timeout: 3000 })
+                              setTimeout(() => msg.delete(), 3000);
                         })
             }
 
@@ -27,19 +27,20 @@ module.exports = {
                         .setColor(`#FF0000`)
                         .setTimestamp()
                         .setFooter("Requested by: " + message.member.displayName, message.author.displayAvatarURL({ dinamic: true }))
-                  message.channel.send(gasm);
+                  return message.channel.send({embeds: [gasm]});
 
             }
             gasm().catch(err => {
                   const { errLogChannelID } = require('../../config.json');
-                  if(!logChannelID) return message.channel.send(err);
+                  const channel = client.channels.cache.get(errLogChannelID)
+                  if(!channel) return;
                   message.react('❌')
                   const logMessage = new discord.MessageEmbed()
-                        .setTitle('Logs of CMD Errors | Crush | Broken')
-                        .setColor('BLUE')
-                        .setDescription(`${message.author.username} use CMD "***${gasm.name}***"\nFrom server: ${message.guild.name}\n${err}`)
-                        .setTimestamp()
-                  client.channels.cache.get(errLogChannelID).send(logMessage);
+                      .setTitle('Logs of CMD Errors | Crush | Broken')
+                      .setColor('BLUE')
+                      .setDescription(`${message.author.username} use CMD "***${pussy.name}***"\nFrom server: ${message.guild.name}\n${err}`)
+                      .setTimestamp()
+                  channel.send({embeds: [logMessage]})
             });
       }
 };

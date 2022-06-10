@@ -12,7 +12,7 @@ module.exports = {
 
             return message.reply(errMessage)
                 .then(msg => {
-                    msg.delete({ timeout: 3000 })
+                    setTimeout(() => msg.delete(), 3000);
                 })
         }
 
@@ -23,7 +23,7 @@ module.exports = {
             akanekoSan.setImage(await akaneko.nsfw.tentacles())
             akanekoSan.setTimestamp()
             akanekoSan.setFooter("Requested by: " + message.member.displayName, message.author.displayAvatarURL({ dinamic: true }))
-            return message.channel.send(akanekoSan);
+            return message.channel.send({embeds: [akanekoSan]});
         }
         tentacles().catch(err => {
             if (err.name == 'Not Found') {
@@ -31,14 +31,15 @@ module.exports = {
             }
             else {
                 const { errLogChannelID } = require('../../config.json');
-                if(!errLogChannelID) return message.channel.send(err);
+                const channel = client.channels.cache.get(errLogChannelID)
+                if(!channel) return;
                 message.react('❌')
                 const logMessage = new discord.MessageEmbed()
                     .setTitle('Logs of CMD Errors | Crush | Broken')
                     .setColor('BLUE')
-                    .setDescription(`${message.author.username} use CMD "***${tentacles.name}***"\nFrom server: ${message.guild.name}\n${err}`)
+                    .setDescription(`${message.author.username} use CMD "***${pussy.name}***"\nFrom server: ${message.guild.name}\n${err}`)
                     .setTimestamp()
-                client.channels.cache.get(errLogChannelID).send(logMessage);
+                channel.send({embeds: [logMessage]})
             }
         })
     }
