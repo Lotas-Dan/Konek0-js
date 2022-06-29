@@ -4,11 +4,13 @@ const { errLogChannelID } = require('../../config.json');
 
 module.exports = {
     name: "ban",
-    aliases: ["b", "banish"],
+    usage: ["Ban user ```[name | nickname | mention | ID] <[reason]>```"],
+    aliases: [],
     category: "moderation",
-    description: "Bans the user",
-    usage: "[name | nickname | mention | ID] <reason> (optional)",
-    accessableby: "Administrator",
+    memberPermissions: ["BAN_MEMBERS"],
+    botPermissions: ["BAN_MEMBERS", "SEND_MESSAGES"],
+    //Settings for command
+    nsfw: false,
     run: async (bot, message, args) => {
         try {
             if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**You Dont Have The Permissions To Ban Users! - [BAN_MEMBERS]**");

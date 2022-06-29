@@ -1,11 +1,15 @@
 const discord = require('discord.js');
 const { Random } = require("something-random-on-discord");
-//const random = new Random();
 
 module.exports = {
     name: "cry",
+    usage: ["When you are very sad ```[command]```"],
+    aliases: [],
     category: "emotions",
-    description: "Cry Gif",
+    memberPermissions: [],
+    botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+    //Settings for command
+    nsfw: false,
     run: async (client, message, args) => {
         let data = await Random.getAnimeImgURL("cry");
 

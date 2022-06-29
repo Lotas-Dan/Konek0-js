@@ -20,15 +20,17 @@ client.categories = fs.readdirSync("./commands/");
     require(`./handlers/${handler}`)(client);
 });
 
-const event = require('./Event/messageCreate');
-client.on('messageCreate',  event.bind(null, client))
+try{
+const messageCreate = require('./Event/messageCreate');
+client.on('messageCreate',  messageCreate.bind(null, client))
 console.log('Connected to Event/MessageCreate!');
+}catch{console.log('Failed Connect to Events/Message')}
 
-//Bot Status
-client.on("ready", () => {
-    client.user.setActivity('I love the 『♛ 𝕰𝖒𝖕𝖊𝖗𝖔𝖗 ♛』| k!help', { type: 'WATCHING' });
-    console.log(`${client.user.username} has been logged in and is ready to use!`);
-});
+try{//Bot Status
+const ready = require('./Event/ready');
+client.on("ready", ready.bind(null, client))
+console.log('Connected to Events/Ready');
+}catch{console.log('Failed Connect to Events/Ready')}
 
 //Log into discord using the token in config.json
 (async () => {

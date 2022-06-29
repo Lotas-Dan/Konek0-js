@@ -4,11 +4,13 @@ const { errLogChannelID } = require('../../config.json');
 
 module.exports = {
     name: "kick",
-    aliases: ["k"],
+    usage: ["Kick user ```[command] + [mention user | id user]```"],
+    aliases: [],
     category: "moderation",
-    description: "Kicks the user",
-    accessableby: "Administrator",
-    usage: "[name | nickname | mention | ID] <reason> (optional)",
+    memberPermissions: ["KICK_MEMBERS"],
+    botPermissions: ["KICK_MEMBERS ", "SEND_MESSAGES"],
+    //Settings for command
+    nsfw: false,
     run: async (bot, message, args) => {
         try {
             if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("**You Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**");

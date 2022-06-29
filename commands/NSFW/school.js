@@ -3,19 +3,14 @@ const akaneko = require('akaneko');
 
 module.exports = {
     name: "school",
+    usage: ["School Uniforms!~ Yatta~! ```[command]```"],
+    aliases: [],
     category: "NSFW",
-    description: "Get some wallpapers",
+    memberPermissions: [],
+    botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+    //Settings for command
+    nsfw: true,
     run: async (client, message, args) => {
-
-        var errMessage = "This is not an NSFW Channel";
-        if (!message.channel.nsfw) {
-            message.react('💢');
-
-            return message.reply(errMessage)
-                .then(msg => {
-                    setTimeout(() => msg.delete(), 3000);
-                })
-        }
         async function school() {
             const akanekoSan = new discord.MessageEmbed()
             akanekoSan.setTitle("School Uniforms!~ Yatta~!")

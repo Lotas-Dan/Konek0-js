@@ -5,20 +5,14 @@ const rp = require('request-promise-native');
 
 module.exports = {
   name: "ass",
+  usage: ["I know you like ass ```[command]```"],
+  aliases: [],
   category: "NSFW",
-  description: "Sends ass Pic",
+  memberPermissions: [],
+  botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+  //Settings for command
+  nsfw: true,
   run: async (client, message, args, level) => {
-
-    var errMessage = "This is not an NSFW Channel";
-    if (!message.channel.nsfw) {
-      message.react('💢');
-
-      return message.reply(errMessage)
-        .then(msg => {
-          setTimeout(() => msg.delete(), 3000);
-        })
-    }
-
     return rp.get('http://api.obutts.ru/butts/0/1/random').then(JSON.parse).then(function (res) {
       return rp.get({
         url: 'http://media.obutts.ru/' + res[0].preview,

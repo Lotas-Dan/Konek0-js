@@ -3,19 +3,14 @@ const akaneko = require('akaneko');
 
 module.exports = {
     name: "cum",
+    usage: ["Basically sticky white stuff that is usually milked from sharpies ```[command]```"],
+    aliases: [],
     category: "NSFW",
-    description: "Get some cum pic",
+    memberPermissions: [],
+    botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+    //Settings for command
+    nsfw: true,
     run: async (client, message, args) => {
-
-        var errMessage = "This is not an NSFW Channel";
-        if (!message.channel.nsfw) {
-            message.react('💢');
-
-            return message.reply(errMessage)
-                .then(msg => {
-                    setTimeout(() => msg.delete(), 3000);
-                })
-        }
         async function cum() {
             const akanekoSan = new discord.MessageEmbed()
             akanekoSan.setTitle("Random Cum")

@@ -3,18 +3,13 @@ const discord = require("discord.js");
 const { prefix } = require('../../config.json');
 module.exports = {
     name: "clear",
-    aliases: ["c", "purge", "t"],
-    cooldown: 3000,
+    usage: ["Delete message count ```[command] + [number]```"],
+    aliases: ["c", "purge"],
     category: "moderation",
-    botPermossion: [
-        "VIEW_CHANNELS",
-        "SEND_MESSAGES",
-        "EMBED_LINKS",
-        "ATTACH_FILES",
-        "MANAGE_MESSAGES0,"
-    ],
-    authorPermission: ["MANAGE_MESSAGES"],
-    description: "Delete bulk messages with 1 command",
+    memberPermissions: ["MANAGE_MESSAGES"],
+    botPermissions: ["VIEW_CHANNELS", "SEND_MESSAGES", "EMBED_LINKS", "ATTACH_FILES", "MANAGE_MESSAGES"],
+    //Settings for command
+    nsfw: false,
     /**
      * 
      * @param {Client} client 

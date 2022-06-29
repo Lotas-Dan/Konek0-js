@@ -1,15 +1,18 @@
 const client = require('nekos.life');
-const discord = require('discord.js')
+const discord = require('discord.js');
 const neko = new client();
 const utils = require('../../utils');
 
 module.exports = {
       name: "cuddle",
-      category: "expressions",
-      description: "cuddles a mentioned user",
-      usage: "[command] + [user]",
+      usage: ["Got a cuddle ```[command] + [mention user]```"],
+      aliases: [],
+      category: "emotions",
+      memberPermissions: [],
+      botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      //Settings for command
+      nsfw: false,
       run: async (client, message, args) => {
-
             const user = message.mentions.users.first();
             if (!user)
                   return message.reply('Mention someone to cuddle');
@@ -25,7 +28,6 @@ module.exports = {
                         .setTimestamp()
                         .setFooter("Requested by: " + message.member.displayName, message.author.displayAvatarURL({ dinamic: true }))
                   return message.channel.send({embeds: [cuddleembed]});
-
             }
             cuddle().catch(err => {
                   const { errLogChannelID } = require('../../config.json');

@@ -5,20 +5,14 @@ const utils = require('../../utils');
 
 module.exports = {
       name: "spank",
+      usage: ["Got spanked ```[command] + [mention user]```"],
+      aliases: [],
       category: "NSFW expressions",
-      description: "spanks a mentioned user",
-      usage: "[command] + [user]",
+      memberPermissions: [],
+      botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      //Settings for command
+      nsfw: true,
       run: async (client, message, args) => {
-
-            var errMessage = "This is not an NSFW Channel";
-            if (!message.channel.nsfw) {
-                  message.react('💢');
-
-                  return message.reply(errMessage)
-                        .then(msg => {
-                              msg.delete({ timeout: 3000 })
-                        })
-            }
             const user = message.mentions.users.first();
             if (!user)
                   return message.reply('Mention someone to spank');

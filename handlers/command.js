@@ -5,8 +5,6 @@ const ascii = require("ascii-table");
 let table = new ascii("Commands");
 table.setHeading("Command", "Load status");
 
-console.log("Welcome to [ Konek0 ] // By https://github.com/Lotas-Dan // Discord: 『♛ 𝕰𝖒𝖕𝖊𝖗𝖔𝖗 ♛』#0398")
-
 module.exports = (client) => {
     readdirSync("./commands/").forEach(dir => {
         const commands = readdirSync(`./commands/${dir}/`).filter(file => file.endsWith(".js"));
@@ -29,5 +27,4 @@ module.exports = (client) => {
     console.log("Welcome to [ Konek0 ] // By https://github.com/Lotas-Dan // Discord: 『♛ 𝕰𝖒𝖕𝖊𝖗𝖔𝖗 ♛』#0398")
 
     console.log("Connecting Bot Events ...");
-
 }

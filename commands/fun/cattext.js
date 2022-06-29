@@ -5,11 +5,14 @@ const utils = require('../../utils');
 
 module.exports = {
   name: "cattext",
+  usage: ["Transfers text to cattext ```[command] + [text]```"],
+  aliases: [],
   category: "fun",
-  description: "sends owo nya cute anime waifu text stuff",
-  usage: "[command]",
+  memberPermissions: [],
+  botPermissions: ["SEND_MESSAGES"],
+  //Settings for command
+  nsfw: false,
   run: async (client, message, args) => {
-
     async function cattext() {
 
       let owo = (await neko.sfw.catText());

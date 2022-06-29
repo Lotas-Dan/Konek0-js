@@ -4,13 +4,16 @@ const neko = new client();
 
 module.exports = {
       name: "wallpaper",
+      usage: ["Random Wallpaper ```[command]```"],
+      aliases: ["wall"],
       category: "SFW",
-      description: "sends random wallpaper",
-      usage: "[command]",
+      memberPermissions: [],
+      botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      //Settings for command
+      nsfw: false,
       run: async (client, message, args) => {
-
             async function work() {
-                  let owo = (await neko.sfw.wallpaper());
+                  let owo = (await neko.wallpaper());
 
                   const wallpaper = new discord.MessageEmbed()
                         .setTitle("Random Wallpaper")

@@ -5,11 +5,14 @@ const utils = require('../../utils');
 
 module.exports = {
       name: "tickle",
+      usage: ["Got tickled ```[command] + [user]```"],
+      aliases: [],
       category: "expressions",
-      description: "tickles a mentioned user",
-      usage: "[command] + [user]",
+      memberPermissions: [],
+      botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      //Settings for command
+      nsfw: false,
       run: async (client, message, args) => {
-
             const user = message.mentions.users.first();
             if (!user)
                   return message.reply('Mention someone to tickle');

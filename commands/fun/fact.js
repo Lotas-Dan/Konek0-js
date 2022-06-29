@@ -6,11 +6,14 @@ const utils = require('../../utils');
 
 module.exports = {
   name: "fact",
+  usage: ["Got fact ```[command]```"],
+  aliases: [],
   category: "fun",
-  description: "sends a random fact",
-  usage: "[command]",
+  memberPermissions: [],
+  botPermissions: ["SEND_MESSAGES"],
+  //Settings for command
+  nsfw: false,
   run: async (client, message, args) => {
-
     async function fact() {
 
       let owo = (await neko.sfw.fact());

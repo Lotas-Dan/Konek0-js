@@ -5,11 +5,14 @@ const utils = require('../../utils');
 
 module.exports = {
       name: "slap",
+      usage: ["Got slapped ```[command] + [mention user]```"],
+      aliases: [],
       category: "expressions",
-      description: "slaps a mentioned user",
-      usage: "[command] + [user]",
+      memberPermissions: [],
+      botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      //Settings for command
+      nsfw: false,
       run: async (client, message, args) => {
-
             const user = message.mentions.users.first();
             if (!user)
                   return message.reply('Mention someone to slap');

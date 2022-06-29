@@ -3,19 +3,14 @@ const redd = require('reddit.images');
 
 module.exports = {
     name: "reddit",
+    usage: ["Reddit ```[command] + [subreddit] | <[command] + [sub/tags]>```"],
+    aliases: [],
     category: "NSFW",
-    description: "Search Reddit Hentai",
+    memberPermissions: [],
+    botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+    //Settings for command
+    nsfw: true,
     run: async (client, message, args) => {
-
-        var errMessage = "This is not an NSFW Channel";
-        if (!message.channel.nsfw) {
-            message.react('💢');
-
-            return message.reply(errMessage)
-                .then(msg => {
-                    setTimeout(() => msg.delete(), 3000);
-                })
-        }
         if (message.content.includes('tags')) {
             const tag = new discord.MessageEmbed()
                 .setTitle("All Hentai Tags ↴")

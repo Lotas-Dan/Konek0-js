@@ -7,10 +7,10 @@ module.exports = {
       category: "SFW",
       description: "kemonomimi",
       usage: "[command]",
+      nsfw: false,
       run: async (client, message, args) => {
-
             async function work() {
-                  let owo = (await neko.sfw.kemonomimi());
+                  let owo = (await neko.kemonomimi());
 
                   const animalears = new discord.MessageEmbed()
                         .setTitle("Kemonomimi")

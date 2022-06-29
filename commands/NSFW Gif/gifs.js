@@ -3,20 +3,14 @@ const akaneko = require('akaneko');
 
 module.exports = {
     name: "gifs",
+    usage: ["Basically an animated image ```[command]```"],
+    aliases: [],
     category: "NSFW Gif",
-    description: "Get some gifs",
+    memberPermissions: [],
+    botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+    //Settings for command
+    nsfw: true,
     run: async (client, message, args) => {
-
-        var errMessage = "This is not an NSFW Channel";
-        if (!message.channel.nsfw) {
-            message.react('💢');
-
-            return message.reply(errMessage)
-                .then(msg => {
-                    msg.delete({ timeout: 3000 })
-                })
-        }
-
         async function gifs() {
             const akanekoSan = new discord.MessageEmbed()
             akanekoSan.setTitle("Basically an animated image, so yes :3")

@@ -5,11 +5,14 @@ const utils = require('../../utils');
 
 module.exports = {
   name: "owoify",
+  usage: ["Transfer text to owoify ```[command] + [text]```"],
+  aliases: [],
   category: "fun",
-  description: "owoifys text",
-  usage: "[command | your text]",
+  memberPermissions: [],
+  botPermissions: ["SEND_MESSAGES"],
+  //Settings for command
+  nsfw: false,
   run: async (client, message, args) => {
-    
     async function owoify() {
 
       let coolusertext = args.join(" ");

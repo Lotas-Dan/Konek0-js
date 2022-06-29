@@ -3,9 +3,13 @@ const { Random } = require("something-random-on-discord");
 
 module.exports = {
     name: "waifu",
-    aliases: ["if"],
+    usage: ["Got waifu ```[command]```"],
+    aliases: [],
     category: "expressions",
-    description: "You new waifu",
+    memberPermissions: [],
+    botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+    //Settings for command
+    nsfw: false,
     run: async (client, message, args) => {
         let data = await Random.getAnimeImgURL("waifu");
 

@@ -10,11 +10,14 @@ let cpuStat = require("cpu-stat")
 
 module.exports = {
     name: "botinfo",
+    usage: ["Info about Konek0 ```[command]```"],
+    aliases: [],
     category: "utility",
-    description: "Sends detailed info about the client",
-    usage: "[command]",
+    memberPermissions: [],
+    botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+    //Settings for command
+    nsfw: false,
     run: async (client, message, args) => {
-        let cpuLol;
         cpuStat.usagePercent(function (err, percent, seconds) {
             if (err) {
                 return console.log(err);

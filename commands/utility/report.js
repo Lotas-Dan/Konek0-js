@@ -3,10 +3,13 @@ const { errLogChannelID, prefix } = require('../../config.json');
 
 module.exports = {
   name: "report",
+  usage: ["Report a bug or problem with Konek0 ```[command] + [message]```"],
+  aliases: [],
   category: "utility",
-  description: "Bot error reporting",
-  cooldown: 5000,
-  usage: "[command | input]",
+  memberPermissions: [],
+  botPermissions: ["SEND_MESSAGES"],
+  //Settings for command
+  nsfw: false,
   run: async (client, message) => {
     const channel = client.channels.cache.get(errLogChannelID)
     if (!channel) return message.reply('Can\'t find logs channel ID')

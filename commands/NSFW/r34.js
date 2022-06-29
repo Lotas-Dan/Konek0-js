@@ -3,20 +3,14 @@ const booru = require('booru');
 
 module.exports = {
     name: "r34",
+    usage: ["Rule34 ```[command] + [category]```"],
+    aliases: [],
     category: "NSFW",
-    description: "Searches rule34",
+    memberPermissions: [],
+    botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+    //Settings for command
+    nsfw: true,
     run: async (client, message, args) => {
-
-        var errMessage = "This is not an NSFW Channel";
-        if (!message.channel.nsfw) {
-            message.react('💢');
-
-            return message.reply(errMessage)
-                .then(msg => {
-                    setTimeout(() => msg.delete(), 3000);
-                })
-        }
-
         if (message.content.toUpperCase().includes('LOLI') || message.content.toUpperCase().includes('GORE')) return message.channel.send('That kind of stuff is not allowed! Not even in NSFW channels!');
 
         var query = message.content.split(/\s+/g).slice(1).join(" ");

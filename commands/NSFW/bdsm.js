@@ -3,20 +3,14 @@ const akaneko = require('akaneko');
 
 module.exports = {
     name: "bdsm",
+    usage: ["If you don't know what it is, search it up ```[command]```"],
+    aliases: [],
     category: "NSFW",
-    description: "Get some bdsm",
+    memberPermissions: [],
+    botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+    //Settings for command
+    nsfw: true,
     run: async (client, message, args) => {
-
-        var errMessage = "This is not an NSFW Channel";
-        if (!message.channel.nsfw) {
-            message.react('💢');
-
-            return message.reply(errMessage)
-                .then(msg => {
-                    setTimeout(() => msg.delete(), 3000);
-                })
-        }
-
         async function bdsm() {
             const akanekoSan = new discord.MessageEmbed()
             akanekoSan.setTitle("If you don't know what it is, search it up")

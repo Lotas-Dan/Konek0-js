@@ -2,10 +2,14 @@ const utils = require('../../utils');
 
 module.exports = {
 	name: "8ball",
+	usage: ["Magick ball ```[command] + [question]```"],
+	aliases: [],
 	category: "fun",
-	description: "returns a response based on your question",
+	memberPermissions: [],
+	botPermissions: ["SEND_MESSAGES"],
+	//Settings for command
+	nsfw: false,
 	run: async (client, message, args) => {
-		
 		function doMagic8BallVoodoo() {
 			var rand = ['Yes', 'No', 'Why are you even trying?', 'What do you think? NO', 'Maybe', 'Never', 'Yep'];
 
@@ -17,7 +21,6 @@ module.exports = {
 			max = Math.floor(max);
 			return Math.floor(Math.random() * (max - min)) + min;
 		}
-
 		// Later in the code:
 		var msg1 = Array(9);
 		msg1[1] = "Yes";

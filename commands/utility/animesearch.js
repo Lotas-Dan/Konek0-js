@@ -3,12 +3,14 @@ const malScraper = require('mal-scraper');
 
 module.exports = {
   name: "animesearch",
-  aliases: ['anim'],
+  usage: ["Anime Search ```[command] + [anime]```"],
+  aliases: ["anim"],
   category: "utility",
-  description: "Get info about an anime",
-  usage: "[command | Anime]",
+  memberPermissions: [],
+  botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+  //Settings for command
+  nsfw: false,
   run: async (client, message, args) => {
-    
     const search = `${args}`;
     if (!search)
       return message.reply('Please add a search query if invalid command will not work.');

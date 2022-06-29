@@ -1,15 +1,13 @@
 const {Client, Message, MessageEmbed} = require('discord.js');
 module.exports ={
     name: "say",
-    cooldown: 3000,
+    usage: ["Repeats your text ```[command] + [text]```"],
+    aliases: [],
     category: "fun",
-    botPermission: [
-        "VIEW_CHANNELS",
-        "SEND_MESSAGES",
-        "EMBED_LINKS",
-        "ATTACH_FILES",
-    ],
-    authorPermission: [""],
+    memberPermissions: [],
+    botPermissions: ["VIEW_CHANNELS", "SEND_MESSAGES", "EMBED_LINKS", "ATTACH_FILES"],
+    //Settings for command
+    nsfw: false,
     /**
      * @param {Client} client
      * @param {Message} message

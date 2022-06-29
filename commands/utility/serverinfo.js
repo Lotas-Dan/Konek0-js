@@ -2,11 +2,14 @@ const discord = require("discord.js");
 
 module.exports = {
   name: "serverinfo",
+  usage: ["Get information about the current server ```[command]```"],
+  aliases: [],
   category: "utility",
-  description: "Shows info about a server",
-  usage: "[command]",
+  memberPermissions: [],
+  botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],
+  //Settings for command
+  nsfw: false,
   run: async (client, message, args) => {
-    //command
     let servericon = message.guild.iconURL;
     const serverembed = new discord.MessageEmbed()
       .setTitle("Server Information")

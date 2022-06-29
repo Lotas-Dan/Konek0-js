@@ -1,15 +1,18 @@
 const client = require('nekos.life');
-const discord = require('discord.js')
+const discord = require('discord.js');
 const neko = new client();
 const utils = require('../../utils');
 
 module.exports = {
       name: "baka",
+      usage: ["Someone call an idot ```[command] + [mention user]```"],
+      aliases: [],
       category: "emotions",
-      description: "idiot",
-      usage: "[command] or [command] + [user]",
+      memberPermissions: [],
+      botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      //Settings for command
+      nsfw: false,
       run: async (client, message, args) => {
-
             const user = message.mentions.users.first();
             if (!user)
                   return message.reply('Mention someone call an idot to');

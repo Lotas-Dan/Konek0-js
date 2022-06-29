@@ -23,20 +23,14 @@ const type = nsfw.getRandomType(); //will return a random category
 
 module.exports = {
     name: "phub",
+    usage: ["--- ```[command] + [category] | <[command] + [allcategory/allcat]>```"],
+    aliases: [],
     category: "NSFW",
-    description: "Searches phub + [allcategory]",
+    memberPermissions: [],
+    botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+    //Settings for command
+    nsfw: true,
     run: async (client, message, args) => {
-
-        var errMessage = "This is not an NSFW Channel";
-        if (!message.channel.nsfw) {
-            message.react('💢');
-
-            return message.reply(errMessage)
-                .then(msg => {
-                    setTimeout(() => msg.delete(), 3000);
-                })
-        }
-
         if (message.content.includes('allcategory') || message.content.includes('allcat')) {
             const mess = new discord.MessageEmbed()
                 .setTitle("All Category ↴")

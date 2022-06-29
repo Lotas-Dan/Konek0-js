@@ -3,11 +3,15 @@ const { Random } = require("something-random-on-discord");
 
 module.exports = {
   name: "punch",
+  usage: ["Got punches ```[command] + [mention user]```"],
+  aliases: [],
   category: "expressions",
-  description: "Punch someone",
+  memberPermissions: [],
+  botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+  //Settings for command
+  nsfw: false,
   run: async (client, message, args) => {
-
-    let target = message.mentions.members.first()
+    const target = message.mentions.members.first()
     if (!target)
       return message.reply('You need to mention the user') //'Why are you doing it ? ＞﹏＜'
     let data = await Random.getAnimeImgURL("punch");

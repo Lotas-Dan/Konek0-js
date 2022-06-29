@@ -4,19 +4,14 @@ const nsfw = new NSFW();
 
 module.exports = {
     name: "driff",
+    usage: ["Hentai driff ```[command]```"],
+    aliases: [],
     category: "NSFW",
+    memberPermissions: [],
+    botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+    //Settings for command
+    nsfw: true,
     run: async (client, message, args) => {
-
-        var errMessage = "This is not an NSFW Channel";
-        if (!message.channel.nsfw) {
-            message.react('💢');
-
-            return message.reply(errMessage)
-                .then(msg => {
-                    setTimeout(() => msg.delete(), 3000);
-                })
-        }
-
         async function driff() {
             let mess = await nsfw.hmidriff();
             const msg = new discord.MessageEmbed()

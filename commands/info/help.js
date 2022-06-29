@@ -3,10 +3,13 @@ const { stripIndents } = require("common-tags");
 
 module.exports = {
     name: "help",
-    aliases: ["h"],
+    usage: ["Get a list of the currently available commands ```[prefix]help```", "Get information about a specific command```[prefix]help <command>```"],
+    aliases: [],
     category: "info",
-    description: "Returns all commands, or one specific command info",
-    usage: "[command | alias]",
+    memberPermissions: [],
+    botPermissions: [ "SEND_MESSAGES", "EMBED_LINKS" ],
+    //Settings for command
+    nsfw: false,
     run: async (client, message, args) => {
         // If there's an args found
         // Send the info of that command found
@@ -69,7 +72,7 @@ function getCMD(client, message, input) {
     if (cmd.description) info += `\n**Description**: ${cmd.description}`;
     if (cmd.usage) {
         info += `\n**Usage**: ${cmd.usage}`;
-        embed.setFooter(`Syntax: <> = required, [] = optional`);
+        embed.setFooter(`Syntax: [] = required, <[]> = optional`);
     }
 
     return message.channel.send(embed.setColor("GREEN").setDescription(info));

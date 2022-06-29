@@ -5,13 +5,14 @@ const stripIndents = require('common-tags').stripIndents;
 
 module.exports = {
   name: "calc",
-  aliases: ["calculate"],
+  usage: ["Calculator ```[command] + [input]```"],
+  aliases: [],
   category: "utility",
-  description: "Calculates a math equation",
-  usage: "[command | input]",
+  memberPermissions: [],
+  botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+  //Settings for command
+  nsfw: false,
   run: async (client, message, args) => {
-    //command
-
     if (args.length < 1)
       return message.reply(`You must provide a equation to be solved on the calculator`);
 

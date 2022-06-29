@@ -1,15 +1,18 @@
 const client = require('nekos.life');
-const discord = require('discord.js')
+const discord = require('discord.js');
 const neko = new client();
 const utils = require('../../utils');
 
 module.exports = {
       name: "smug",
+      usage: ["Shows that you are smug ```[command]```"],
+      aliases: [],
       category: "emotions",
-      description: "shows that you are smug",
-      usage: "[command]",
+      memberPermissions: [],
+      botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      //Settings for command
+      nsfw: false,
       run: async (client, message, args) => {
-
             async function smug() {
                   let owo = (await neko.sfw.smug());
 
@@ -21,7 +24,6 @@ module.exports = {
                         .setTimestamp()
                         .setFooter("Requested by: " + message.member.displayName, message.author.displayAvatarURL({ dinamic: true }))
                   return message.channel.send({embeds: [smug]});
-
             }
             smug().catch(err => {
                   const { errLogChannelID } = require('../../config.json');

@@ -3,11 +3,14 @@ const utils = require('../../utils');
 
 module.exports = {
   name: "ascii",
+  usage: ["Uh-oh FUNN ```[command] + [your text]```"],
+  aliases: [],
   category: "fun",
-  description: "Converts text info ASCII",
-  usage: "[command | your text]",
+  memberPermissions: [],
+  botPermissions: ["SEND_MESSAGES"],
+  //Settings for command
+  nsfw: false,
   run: async (client, message, args) => {
-
     var maxLen = 100 // You can set the maximum number of letters yourself
 
     if (args.join(' ').length > maxLen) return message.channel.send(`The max length is ${maxLen}!`)
@@ -22,6 +25,5 @@ module.exports = {
       }
       message.channel.send(`${data}`, { code: 'AsciiArt' });
     });
-
   }
 };

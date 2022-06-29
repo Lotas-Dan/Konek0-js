@@ -2,19 +2,15 @@ const { MessageEmbed, DiscordAPIError } = require('discord.js');
 const fetch = require('node-fetch');
 
 module.exports = {
-  name: 'boobs',
-  description: 'Menampilkan nsfw bergenre Boobs',
-  cooldown: 5000,
+  name: "boobs",
+  usage: ["I know you like boobies ```[command]```"],
+  aliases: [],
+  category: "NSFW",
+  memberPermissions: [],
+  botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+  //Settings for command
+  nsfw: true,
   run: async (client, message, args) => {
-
-    if (!message.channel.nsfw) {
-      return message.reply(
-        `This is not an NSFW Channel`
-      ).then(msg => {
-        setTimeout(() => msg.delete(), 3000);
-      })
-    }
-
     try {
 
       var subreddits = [

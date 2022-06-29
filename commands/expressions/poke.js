@@ -5,11 +5,14 @@ const utils = require('../../utils');
 
 module.exports = {
       name: "poke",
+      usage: ["Got poked ```[command] + [mention user]```"],
+      aliases: [],
       category: "expressions",
-      description: "pokes a mentioned user",
-      usage: "[command] + [user]",
+      memberPermissions: [],
+      botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      //Settings for command
+      nsfw: false,
       run: async (client, message, args) => {
-
             const user = message.mentions.users.first();
             if (!user)
                   return message.reply('Mention someone to poke');

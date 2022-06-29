@@ -50,9 +50,6 @@ exports.embed = (title, description = '', fields = [], options = {}) => {
         .setURL(url)
         .setImage(options.image)
         .setTimestamp(options.timestamp ? timestampToDate(options.timestamp) : null)
-
-        //        .setFooter(randomFooter())
-
         .setAuthor(options.author === undefined ? '' : options.author)
         .setThumbnail(options.thumbnail);
 };

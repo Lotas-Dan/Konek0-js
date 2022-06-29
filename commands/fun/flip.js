@@ -4,11 +4,14 @@ const utils = require('../../utils');
 
 module.exports = {
     name: "flip",
+    usage: ["Flip a coin ```[command]```"],
+    aliases: [],
     category: "fun",
-    description: "Flips a coin",
-    usage: "[command]",
+    memberPermissions: [],
+    botPermissions: ["SEND_MESSAGES"],
+    //Settings for command
+    nsfw: false,
     run: async (client, message, args) => {
-        
         function getRandomInt(min, max) {
             min = Math.ceil(min);
             max = Math.floor(max);

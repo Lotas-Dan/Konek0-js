@@ -3,14 +3,17 @@ const discord = require('discord.js')
 const neko = new client();
 
 module.exports = {
-      name: "foxgirl",
+      name: "foxygirl",
+      usage: ["Random Fox Girl Image ```[command]```"],
+      aliases: [],
       category: "SFW",
-      description: "sends random foxgirl",
-      usage: "[command]",
+      memberPermissions: [],
+      botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      //Settings for command
+      nsfw: false,
       run: async (client, message, args) => {
-
             async function work() {
-                  let owo = (await neko.sfw.foxGirl());
+                  let owo = (await neko.foxGirl());
 
                   const foxGirl = new discord.MessageEmbed()
                         .setTitle("Random Fox Girl")

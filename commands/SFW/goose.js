@@ -4,13 +4,16 @@ const neko = new client();
 
 module.exports = {
       name: "goose",
+      usage: ["Random goose Image ```[command]```"],
+      aliases: [],
       category: "SFW",
-      description: "sends random goose image",
-      usage: "[command]",
+      memberPermissions: [],
+      botPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      //Settings for command
+      nsfw: false,
       run: async (client, message, args) => {
-
             async function work() {
-                  let owo = (await neko.sfw.goose());
+                  let owo = (await neko.goose());
 
                   const goose = new discord.MessageEmbed()
                         .setTitle("Random goose Image")
