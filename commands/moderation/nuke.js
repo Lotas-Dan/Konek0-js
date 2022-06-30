@@ -40,8 +40,7 @@ module.exports = {
           });
         } else {
           msg.edit(`${message.author}` + 'You canceled the operation, this message will be deleted after 5 seconds')
-          msg.delete({ timeout: 5000 })
-        }
+          setTimeout(() => msg.delete(), 5000)}
       })
     }))
   },
