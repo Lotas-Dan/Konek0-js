@@ -5,7 +5,7 @@ fs = require("fs");
 
 const client = new Client({
     disableEveryone: true,
-    intents: ['GUILDS', 'GUILD_BANS','GUILD_MEMBERS','GUILD_MESSAGES']
+    intents: ['GUILDS', 'GUILD_BANS','GUILD_MEMBERS','GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS']
 });
 
 //Command Handler

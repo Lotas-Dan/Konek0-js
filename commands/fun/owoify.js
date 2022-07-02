@@ -19,7 +19,7 @@ module.exports = {
       if (!coolusertext) return message.channel.send('Please type some text to owoify.')
       if (coolusertext.length > 200) return message.channel.send(`I can't owoify your text, it is over 200 characters long!`)
 
-      let owo = await neko.sfw.OwOify({ text: coolusertext });
+      let owo = await neko.OwOify({ text: coolusertext });
       message.channel.send(owo.owo).catch(err => {
         const { errLogChannelID } = require('../../config.json');
         const channel = client.channels.cache.get(errLogChannelID)

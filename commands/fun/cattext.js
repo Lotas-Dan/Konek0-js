@@ -15,7 +15,7 @@ module.exports = {
   run: async (client, message, args) => {
     async function cattext() {
 
-      let owo = (await neko.sfw.catText());
+      let owo = (await neko.catText());
       message.channel.send(owo.cat).catch(err => {
         const { errLogChannelID } = require('../../config.json');
         const channel = client.channels.cache.get(errLogChannelID)

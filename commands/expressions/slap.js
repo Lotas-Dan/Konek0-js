@@ -18,7 +18,7 @@ module.exports = {
                   return message.reply('Mention someone to slap');
 
             async function slap() {
-                  let owo = (await neko.sfw.slap());
+                  let owo = (await neko.slap());
 
                   const slapemebd = new discord.MessageEmbed()
                         .setTitle(user.username + " You have been slapped ")

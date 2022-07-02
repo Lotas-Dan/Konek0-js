@@ -14,7 +14,7 @@ module.exports = {
       nsfw: false,
       run: async (client, message, args) => {
             async function smug() {
-                  let owo = (await neko.sfw.smug());
+                  let owo = (await neko.smug());
 
                   const smug = new discord.MessageEmbed()
                         .setTitle("Someone is smug")

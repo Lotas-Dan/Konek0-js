@@ -18,7 +18,7 @@ module.exports = {
                   return message.reply('Mention someone to hug');
 
             async function hug() {
-                  let owo = (await neko.sfw.hug());
+                  let owo = (await neko.hug());
 
                   const hugembed = new discord.MessageEmbed()
                         .setTitle(user.username + " You have been hugged! ")

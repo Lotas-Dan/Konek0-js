@@ -18,7 +18,7 @@ module.exports = {
                   return message.reply('Mention someone to kiss');
 
             async function kiss() {
-                  let owo = (await neko.sfw.kiss());
+                  let owo = (await neko.kiss());
 
                   const kissembed = new discord.MessageEmbed()
                         .setTitle(user.username + " You have been kissed!")

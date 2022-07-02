@@ -18,7 +18,7 @@ module.exports = {
                   return message.reply('Mention someone to cuddle');
 
             async function cuddle() {
-                  let owo = (await neko.sfw.cuddle());
+                  let owo = (await neko.cuddle());
 
                   const cuddleembed = new discord.MessageEmbed()
                         .setTitle(user.username + " You just got a cuddle! ")

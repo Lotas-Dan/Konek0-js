@@ -17,7 +17,6 @@ module.exports = {
     let data = await Random.getAnimeImgURL("punch");
 
     const embed = new discord.MessageEmbed()
-      .setTitle(user.username + " You have been punched")
       .setImage(data)
       .setColor("RANDOM")
       .setDescription(target.toString() + " punches " + message.author.toString())

@@ -18,7 +18,7 @@ module.exports = {
                   return message.reply('Mention someone to pat');
 
             async function pat() {
-                  let owo = (await neko.sfw.pat());
+                  let owo = (await neko.pat());
 
                   const patembed = new discord.MessageEmbed()
                         .setTitle(user.username + " !!! ")
