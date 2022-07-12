@@ -2,10 +2,11 @@
 Konek0 is designed to fit all of your “needs”.
 * The default prefix is k! so the help command would be k!help 
 * If you find bugs, I will be grateful for a bug report 😉
+### Database version of the bot coming soon👍
 ### Please contact to me if you would like any features you would like added to the bot!
 >Discord:『♛ 𝕰𝖒𝖕𝖊𝖗𝖔𝖗 ♛』#0398
 
->If you have questions or suggestions: [Konek0 Support Server](https://discord.gg/j9zfDYjewB)
+>If you have questions or suggestions: [Konek0 Official](https://discord.gg/U5r2pMuRHG)
 # [Invite the bot to your server!](https://discord.com/api/oauth2/authorize?client_id=909114894601830400&permissions=1099511753814&scope=bot)
 * Use the above link if you don't want to follow the steps bellow.
 ### Requirements for the self hosting
