@@ -6,8 +6,8 @@ Konek0 is designed to fit all of your “needs”.
 ### Please contact to me if you would like any features you would like added to the bot!
 >Discord:『♛ 𝕰𝖒𝖕𝖊𝖗𝖔𝖗 ♛』#0398
 
->If you have questions or suggestions: [Konek0 Official](https://discord.gg/U5r2pMuRHG)
-# [Invite the bot to your server!](https://discord.com/api/oauth2/authorize?client_id=909114894601830400&permissions=1099511753814&scope=bot)
+<a href="https://discord.gg/U5r2pMuRHG"><img src="https://discord.com/api/guilds/996497085077659720/widget.png?style=banner2"></a>
+# [Invite the bot to your server!](https://discord.com/api/oauth2/authorize?client_id=909114894601830400&permissions=1403679534199&scope=bot%20applications.commands)
 * Use the above link if you don't want to follow the steps bellow.
 ### Requirements for the self hosting
 * node.js
